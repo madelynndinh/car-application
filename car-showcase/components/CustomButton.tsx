@@ -6,19 +6,29 @@ import Image from 'next/image';
 import React from "react";
 import {CustomButtonProps} from '@/types'
 
-const CustomButton = ({title, containerStyles, handleClick, btnType}:CustomButtonProps) => {
-    return (
+const CustomButton = ({ isDisabled,title, containerStyles, handleClick, btnType, textStyles,rightIcon}:CustomButtonProps) => (
         <button 
-        disabled = {false}
+        disabled = {isDisabled}
         type = {btnType|| "button"}
         className = {`custom-btn ${containerStyles}`}
         onClick={handleClick}
         >
-            <span className={'flex-1'}>
+            <span className={`flex-1 ${textStyles}`}>
                 {title}
             </span>
-        </button>
-    )
-}
+            {rightIcon && (
+                <div className='relative w-6 h-6'>
+                    <Image
+                    src={rightIcon}
+                    alt = "arrow_left"
+                    fill
+                    className='object-contain'>
 
-export default CustomButton
+                    </Image>
+                </div>
+            )}
+        </button>
+    );
+
+
+export default CustomButton;
