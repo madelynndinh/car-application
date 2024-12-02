@@ -1,4 +1,4 @@
-import { CarProps } from "@/types";
+import { CarProps,FilterProps } from "@/types";
 
 const url = 'https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=corolla';
 const options = {
@@ -19,11 +19,13 @@ try {
 
 
 export async function fetchCars(filters: FilterProps) {
+    const {manufacturer, year, model, limit, fuel} = filters;
+
     const headers = {
         'x-rapidapi-key': 'a24a0aeecemshd8ee2039161cfc5p1dc530jsn7a66c31c4117',
 		'x-rapidapi-host': 'cars-by-api-ninjas.p.rapidapi.com'
     }
-    const response =  await fetch('https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=corolla',{
+    const response =  await fetch(`https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${manufacturer}&year=${year}&model=${model}&limit=${limit}&fuel_type=${fuel}`,{
         headers:headers,
     });
 
@@ -75,4 +77,5 @@ url.searchParams.append('modelYear',`${year}`);
 
 url.searchParams.append('angle',`${angle}`);
 return `${url}`;
-  }
+  };
+

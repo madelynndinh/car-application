@@ -6,6 +6,7 @@ import SearchBar from './SearchBar'
 import CustomFilter from './CustomFilter'
 import CarCard from './CarCard'
 import CarDetails from './CarDetails'
+import ShowMore from './ShowMore'
 
 export {
     Hero,
@@ -16,5 +17,6 @@ export {
     CustomFilter,
     CarCard,
     CarDetails,
+    ShowMore,
 
 }
