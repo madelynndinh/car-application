@@ -58,3 +58,10 @@ export interface ShowMoreProps {
     isNext: boolean;
 
 }
+
+export type CarState = CarProps[] & { message?: string };
+
+export interface SearchBarProps {
+    setManuFacturer: (manufacturer: string) => void;
+    setModel: (model: string) => void;
+  }
